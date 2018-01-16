@@ -1,0 +1,56 @@
+
+<ion-header>
+
+  <ion-navbar>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>
+      <img alt="logo" class="title-image" height="40" src="assets/img/logo-noPadding-h40.png" > 
+    </ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+<ion-card>
+    <ion-card-header text-center>
+      All Orders
+    </ion-card-header>
+  </ion-card>
+
+<ion-grid>
+  
+  {{ orders }}
+
+  <ion-row  *ngFor="let order of orders">
+    <ion-card>
+
+      <ion-card-header>
+        Order details
+      </ion-card-header>
+      <ion-card-content>
+        Name: {{ order.shipping.first_name }} {{ order.shipping.last_name }} <br>
+        Mail: {{ order.billing.email }}
+      </ion-card-content>
+
+      <ion-card-header>
+        Skin Quiz Answers 
+      </ion-card-header>
+      <ion-card-content>
+        Skin Type: {{ order.quiz["2_4"] }}<br>
+        #1 Concern: {{ order.quiz["2_5"] }}<br>
+        #2 Concern: {{ order.quiz["2_6"] }}<br>
+        Scent: {{ order.quiz["4_1"] }}
+      </ion-card-content>
+      
+    </ion-card>
+  </ion-row>
+
+</ion-grid>
+
+</ion-content>
